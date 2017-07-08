@@ -10,3 +10,7 @@ dist
 # Data
 token
 build/
+
+# Testing
+discord.py
+*.log
