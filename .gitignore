@@ -1,0 +1,12 @@
+# Environment
+.idea/
+.python-version
+
+# Build
+build
+disband.py.egg-info
+dist
+
+# Data
+token
+build/
