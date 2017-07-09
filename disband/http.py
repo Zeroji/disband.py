@@ -4,6 +4,14 @@ from discord.http import HTTPClient as _HTTPClient
 del HTTPClient
 
 
+# Decorator
+def switch_agent(func):
+    def switcher(self, *a, **kw):
+        with self.use_alt_agent():
+            yield from func(self, *a, **kw)
+    return switcher
+
+
 class HTTPClient(_HTTPClient):
     """Subclass of discord.http.HTTPClient adding features.
     See HTTPClient.__base__.__doc__ for more info."""
@@ -30,11 +38,3 @@ class HTTPClient(_HTTPClient):
 
     def unblock_user(self, user_id):
         return self.request(Route('DELETE', '/users/@me/relationships/{user_id}', user_id=user_id))
-
-
-# Decorator
-def switch_agent(func):
-    def switcher(self, *a, **kw):
-        with self.use_alt_agent():
-            yield from func(self, *a, **kw)
-    return switcher
