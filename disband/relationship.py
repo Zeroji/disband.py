@@ -1,5 +1,6 @@
 from discord.enums import try_enum
 from .enums import RelationshipType
+from .user import User
 
 
 class Relationship:
@@ -8,4 +9,4 @@ class Relationship:
     def __init__(self, state, data):
         self._state = state
         self.type = try_enum(RelationshipType, data['type'])
-        self.user = state.store_user(data['user'])
+        self.user = User(**data['user'])
