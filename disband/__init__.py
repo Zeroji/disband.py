@@ -8,4 +8,4 @@ from .enums import RelationshipType
 __author__ = 'Zeroji'
 __license__ = 'MIT'
 __copyright__ = 'Copyright (c) 2017 Zeroji'
-__version__ = '0.1.1'
+__version__ = '0.2.0'

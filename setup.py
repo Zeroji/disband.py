@@ -28,7 +28,7 @@ setup(
     packages=find_packages(exclude=['docs', 'tests']),
     install_requires=requirements,
     classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
+        'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
         'Topic :: Internet',
         'Topic :: Software Development :: Libraries',
