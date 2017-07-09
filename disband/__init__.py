@@ -1,6 +1,7 @@
 from discord import *
 from discord import __version__ as __discord_version__
 from .client import Client
+from .enums import RelationshipType
 
 __author__ = 'Zeroji'
 __license__ = 'MIT'
