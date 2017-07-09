@@ -19,7 +19,10 @@ class ConnectionState(_ConnectionState):
             self.user.relationships[relationship['id']] = Relationship(self, relationship)
 
     def parse_relationship_add(self, data):
-        old = self.user.relationships.pop(data['id'], None)
+        key = data['id']
+        old = self.user.relationships.get(key)
+        if old is not None:
+            self.user.relationships.pop(key)
         new = Relationship(self, data)
         self.user.relationships[data['id']] = new
         if old is not None:
@@ -28,6 +31,8 @@ class ConnectionState(_ConnectionState):
             self.dispatch('relationship_add', new)
 
     def parse_relationship_remove(self, data):
-        old = self.user.relationships.pop(data['id'], None)
+        key = data['id']
+        old = self.user.relationships.get(key)
         if old is not None:
+            self.user.relationships.pop(key)
             self.dispatch('relationship_remove', old)
