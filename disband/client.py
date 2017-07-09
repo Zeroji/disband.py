@@ -1,10 +1,10 @@
 from discord.client import *
-from discord.client import Client as SuperClient
+from discord.client import Client as _Client
 from .http import HTTPClient
 del Client
 
 
-class Client(SuperClient):
+class Client(_Client):
     """Subclass of discord.Client adding features.
     See Client.__base__.__doc__ for more info."""
 
