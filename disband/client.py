@@ -1,6 +1,7 @@
 from discord.client import *
 from discord.client import Client as _Client
 from .http import HTTPClient
+from .state import ConnectionState
 del Client
 
 
@@ -13,6 +14,9 @@ class Client(_Client):
         super().__init__(loop=loop, **options)
         self.http.session.close()  # closing previous session
         self.http = HTTPClient(connector, loop=self.loop)  # creating new session
+        max_messages = self.connection.max_messages  # creating new connection state
+        self.connection = ConnectionState(self.dispatch, self.request_offline_members,
+                                          self._syncer, max_messages, loop=self.loop)
 
     @asyncio.coroutine
     def block_user(self, user):
