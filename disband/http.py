@@ -40,3 +40,9 @@ class HTTPClient(_HTTPClient):
 
     def remove_relationship(self, user_id):
         return self.request(Route('DELETE', '/users/@me/relationships/{user_id}', user_id=user_id))
+
+    @switch_agent
+    def send_request(self, username, discriminator):
+        r = Route('POST', '/users/@me/relationships')
+        payload = {'username': username, 'discriminator': int(discriminator)}
+        return self.request(r, json=payload)
