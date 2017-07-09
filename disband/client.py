@@ -1,5 +1,6 @@
 from discord.client import *
 from discord.client import Client as _Client
+from .enums import RelationshipType
 from .http import HTTPClient
 from .state import ConnectionState
 del Client
@@ -23,10 +24,10 @@ class Client(_Client):
         if not isinstance(user, User):
             raise InvalidArgument('user argument must be a User')
         print('blocking user')
-        yield from self.http.block_user(user.id)
+        yield from self.http.add_relationship(user.id, RelationshipType.blocked)
 
     @asyncio.coroutine
     def unblock_user(self, user):
         if not isinstance(user, User):
             raise InvalidArgument('user argument must be a User')
-        yield from self.http.unblock_user(user.id)
+        yield from self.http.remove_relationship(user.id)

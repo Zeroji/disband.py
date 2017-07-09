@@ -31,10 +31,12 @@ class HTTPClient(_HTTPClient):
             self.user_agent = self._user_agent
 
     @switch_agent
-    def block_user(self, user_id):
+    def add_relationship(self, user_id, type=None):
         r = Route('PUT', '/users/@me/relationships/{user_id}', user_id=user_id)
-        payload = {'type': 2}
+        payload = {}
+        if type is not None:
+            payload['type'] = type
         return self.request(r, json=payload)
 
-    def unblock_user(self, user_id):
+    def remove_relationship(self, user_id):
         return self.request(Route('DELETE', '/users/@me/relationships/{user_id}', user_id=user_id))
