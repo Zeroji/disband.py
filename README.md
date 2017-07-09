@@ -3,6 +3,8 @@ disband.py
 
 [![PyPI](https://img.shields.io/pypi/v/disband.py.svg)](https://pypi.python.org/pypi/disband.py/)
 [![PyPI](https://img.shields.io/pypi/pyversions/disband.py.svg)](https://pypi.python.org/pypi/disband.py/)
+[![PyPI](https://img.shields.io/pypi/status/disband.py.svg)](https://pypi.python.org/pypi/disband.py/)
+[![PyPI](https://img.shields.io/pypi/format/disband.py.svg)](https://pypi.python.org/pypi/disband.py/)
 
 *It's discord.py, now with friends!*
 
