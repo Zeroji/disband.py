@@ -23,7 +23,6 @@ class Client(_Client):
     def block_user(self, user):
         if not isinstance(user, User):
             raise InvalidArgument('user argument must be a User')
-        print('blocking user')
         yield from self.http.add_relationship(user.id, RelationshipType.blocked)
 
     @asyncio.coroutine
