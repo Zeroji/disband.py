@@ -133,19 +133,19 @@ Returns the relationship between two users, or `None`
 
 ##### `user.friends`
 
-Gives a list of **`User`**s the user is friends with.
+Gives a list of **`User`**<!---->s the user is friends with.
 
 ##### `user.blocked`
 
-Gives a list of **`User`**s the user has blocked.
+Gives a list of **`User`**<!---->s the user has blocked.
 
 ##### `user.incoming_request`
 
-Gives a list of **`Relationship`**s for incoming friend requests.
+Gives a list of **`Relationship`**<!---->s for incoming friend requests.
 
 ##### `user.outgoing_request`
 
-Gives a list of **`Relationship`**s for outgoing friend requests.
+Gives a list of **`Relationship`**<!---->s for outgoing friend requests.
 
 ### Relationship
 
